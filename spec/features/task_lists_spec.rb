@@ -30,6 +30,10 @@ feature 'Task lists' do
     click_on "+ Add Task List"
 
     expect(page).to have_field("Name")
+    fill_in "Name", with: "Study"
+    click_on"Save Task list"
+
+    expect(page).to have_content "Study"
   end
 
 end
