@@ -4,7 +4,10 @@
 
 <%= f.label :task %>
 <%= f.text_field :task %>
-  <%= f.hidden_field :task_list_id, value: @task_list_id %>
+<%= f.hidden_field :task_list_id, value: @task_list_id %>
+
+
+  <%= select_date Date.today, prefix: :start_date %>
 <%= f.submit "Create Task" %>
 
 <% end %>
