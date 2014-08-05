@@ -8,7 +8,16 @@
   <section class="task-list">
     <h1><%= task_list.name %></h1>
     <a href="/task_lists/<%= task_list[:id]%>/edit">Edit</a>
-    <a href="/task_lists/tasks/new">+ Add Task</a>
+    <a href="/task_lists/<%= task_list[:id]%>/tasks/new">+ Add Task</a>
   </section>
-
+  <ul>
+  <%@tasks.each do |task|%>
+    <%if task["task_list_id"] == task_list["id"] %>
+    <li><%= task["task"]%></li>
+  <%end%>
+    <%end%>
+  </ul>
 <% end %>
+
+
+

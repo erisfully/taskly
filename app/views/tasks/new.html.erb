@@ -1,1 +1,11 @@
 <h1>Add a task</h1>
+
+<%= form_for @task do |f| %>
+
+<%= f.label :task %>
+<%= f.text_field :task %>
+  <%= f.hidden_field :task_list_id, value: @task_list_id %>
+<%= f.submit "Create Task" %>
+
+<% end %>
+
