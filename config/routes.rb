@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   patch "task_lists/:id/edit" => "task_lists#update"
 
+  get "task_lists/tasks/new" => "tasks#new"
+
 end
