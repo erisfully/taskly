@@ -1,11 +1,14 @@
 <h1>Add a task list</h1>
 
-<%= form_for :task_list do |f| %>
-<p>
+<%= form_for @task_list, url: "/task_lists/new" do |f| %>
+<% if @task_list.errors.any? %>
+    <%= "Your task list could not be created" %>
+   <% end %>
+  <p>
   <%= f.label :name %><br>
   <%= f.text_field :name %>
 </p>
   <p>
-    <%= f.submit %>
+    <%= f.submit "Save Task List" %>
   </p>
 <% end %>

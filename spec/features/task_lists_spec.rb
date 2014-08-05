@@ -34,6 +34,11 @@ feature 'Task lists' do
     click_on"Save Task list"
 
     expect(page).to have_content "Study"
+
+    click_on "+ Add Task List"
+    fill_in "Name", with: ""
+
+      expect(page).to have_content "Your task list could not be created"
   end
 
 end
