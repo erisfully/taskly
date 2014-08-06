@@ -52,7 +52,7 @@ feature 'Task lists' do
 
     end
 
-  scenario "User can add a task" do
+  scenario "User can add and delete a task" do
     create_user email: "user@example.com"
 
     visit signin_path
@@ -77,6 +77,15 @@ feature 'Task lists' do
 
     expect(page).to have_content "Task was created successfully!"
     expect(page).to have_content "code"
+
+    click_on "+ Add Task"
+
+
+    click_on "Create Task"
+
+    expect(page).to have_content "Your task could not be created"
+
+    click_on "Delete"
   end
 
 end
