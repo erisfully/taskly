@@ -7,7 +7,14 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    Date.new(params[:date][:year])
+
+    @task = Task.new(
+      task: params[:task][:task],
+      task_list_id: params[:task][:task_list_id],
+      date: params[:task][:date]
+    )
+
     if @task.save
       flash[:notice] = "Task was created successfully!"
       redirect_to root_path
@@ -16,8 +23,4 @@ class TasksController < ApplicationController
     end
   end
 
-  private
-    def task_params
-      params.require(:task).permit(:task, :task_list_id)
-    end
 end
