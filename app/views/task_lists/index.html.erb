@@ -13,7 +13,10 @@
   <ul>
   <%@tasks.each do |task|%>
     <%if task["task_list_id"] == task_list["id"] %>
-    <li><%= task["task"]%></li>
+    <li><%= task["task"]%>
+      <a href="task/<%= task[:id]%>/delete">Delete</a>
+      #needs hidden field stuff
+    </li>
   <%end%>
     <%end%>
   </ul>

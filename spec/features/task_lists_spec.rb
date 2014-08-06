@@ -85,7 +85,10 @@ feature 'Task lists' do
 
     expect(page).to have_content "Your task could not be created"
 
+    visit root_path
+
     click_on "Delete"
+
   end
 
 end
