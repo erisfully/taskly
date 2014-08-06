@@ -1,5 +1,6 @@
 require 'rails_helper'
 require 'capybara/rails'
+require 'launchy'
 
 feature 'Task lists' do
 
@@ -30,15 +31,42 @@ feature 'Task lists' do
     click_on "+ Add Task List"
 
     expect(page).to have_field("Name")
-    fill_in "Name", with: "Study"
-    click_on"Save Task list"
+    fill_in "Name", with: ""
+    click_on"Save Task List"
 
-    expect(page).to have_content "Study"
+    expect(page).to have_content "Your task list could not be created"
+
+    fill_in "Name", with: "School"
+    click_on "Save Task List"
+
+    expect(page).to have_content "Task List was created successfully!"
+
+    page.first(:link, "Edit").click
+
+    expect(page).to have_field "Name", with: "School"
+    fill_in "Name", with: "gSchool"
+    click_on "Edit Task List"
+
+    expect(page).to have_content "Task List was updated successfully!"
+    expect(page).to have_content "gSchool"
+
+    end
+
+  scenario "User can add a task" do
+    create_user email: "user@example.com"
+
+    visit signin_path
+    click_on "Login"
+    fill_in "Email", with: "user@example.com"
+    fill_in "Password", with: "password"
+    click_on "Login"
 
     click_on "+ Add Task List"
-    fill_in "Name", with: ""
 
-      expect(page).to have_content "Your task list could not be created"
+    fill_in "Name", with: "gSchool"
+    click_on "Save Task List"
+
+    click_on "+ Add Task"
   end
 
 end
