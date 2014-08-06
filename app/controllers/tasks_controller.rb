@@ -7,14 +7,13 @@ class TasksController < ApplicationController
   end
 
   def create
-    Date.new(params[:date][:year])
+    @date = Date.new(params[:task]["date(1i)"].to_i, params[:task]["date(2i)"].to_i, params[:task]["date(3i)"].to_i)
 
     @task = Task.new(
       task: params[:task][:task],
       task_list_id: params[:task][:task_list_id],
-      date: params[:task][:date]
+      date: @date
     )
-
     if @task.save
       flash[:notice] = "Task was created successfully!"
       redirect_to root_path
@@ -24,3 +23,4 @@ class TasksController < ApplicationController
   end
 
 end
+
