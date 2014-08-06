@@ -4,10 +4,11 @@
 <% if @task_list.errors.any? %>
     <%= "Your task list could not be created" %>
    <% end %>
-  <p>
+  <div>
   <%= f.label :name %><br>
   <%= f.text_field :name %>
-</p>
+   <p class="error"><%= @task_list.errors[:name].first %></p>
+</div>
   <p>
     <%= f.submit "Save Task List" %>
   </p>
