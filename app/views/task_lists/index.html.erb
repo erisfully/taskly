@@ -14,8 +14,7 @@
   <%@tasks.each do |task|%>
     <%if task["task_list_id"] == task_list["id"] %>
     <li><%= task["task"]%>
-      <a href="task/<%= task[:id]%>/delete">Delete</a>
-      #needs hidden field stuff
+      <%= link_to 'Delete', task_path(task["id"]), :method => :delete %>
     </li>
   <%end%>
     <%end%>
