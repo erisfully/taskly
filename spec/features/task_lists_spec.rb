@@ -90,6 +90,7 @@ feature 'Task lists' do
     click_on "Delete"
 
     expect(page).to_not have_content("code")
+    expect(page).to have_content("Task was deleted successfully!")
 
   end
 

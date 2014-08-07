@@ -25,6 +25,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    flash[:notice] = "Task was deleted successfully!"
     redirect_to root_path
   end
 
