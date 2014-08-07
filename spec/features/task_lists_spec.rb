@@ -89,6 +89,8 @@ feature 'Task lists' do
 
     click_on "Delete"
 
+    expect(page).to_not have_content("code")
+
   end
 
 end
