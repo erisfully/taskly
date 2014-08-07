@@ -19,7 +19,7 @@ feature 'Task lists' do
 
    end
 
-    scenario "User can add new task lists" do
+  scenario "User can add new task lists" do
       create_user email: "user@example.com"
 
     visit signin_path
@@ -91,6 +91,23 @@ feature 'Task lists' do
 
     expect(page).to_not have_content("code")
     expect(page).to have_content("Task was deleted successfully!")
+
+    click_on "+ Add Task"
+
+    fill_in "Task", with: "code"
+    click_on "Create Task"
+
+    click_on "+ Add Task List"
+
+    fill_in "Name", with: "Home"
+    click_on "Save Task List"
+
+    click_on "gSchool"
+
+    expect(page).to_not have_content("Home")
+    expect(page).to have_content("code")
+
+
 
   end
 

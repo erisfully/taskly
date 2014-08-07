@@ -35,6 +35,11 @@ class TaskListsController < ApplicationController
     end
   end
 
+  def show
+    @task_list = TaskList.find(params[:id])
+    @tasks = Task.all
+  end
+
   private
     def task_list_params
       params.require(:task_list).permit(:name)

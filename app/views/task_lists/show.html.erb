@@ -1,0 +1,7 @@
+<h1><%= @task_list[:name] %></h1>
+
+<ul>
+<%@tasks.to_a.each do |task|%>
+<li><%= task["task"] %></li>
+<% end %>
+</ul>
