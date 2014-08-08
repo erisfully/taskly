@@ -13,7 +13,7 @@
   <ul>
   <%@tasks.each do |task|%>
     <%if task["task_list_id"] == task_list["id"] %>
-    <li><%= task["task"]%>
+    <li><%= task["task"] %> - <%= task["date"] %>
       <%= link_to 'Delete', task_path(task["id"]), :method => :delete %>
     </li>
   <%end%>

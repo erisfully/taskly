@@ -97,6 +97,9 @@ feature 'Task lists' do
     click_on "+ Add Task"
 
     fill_in "Task", with: "code"
+    select "2015", from: "task_date_1i"
+    select "August", from: "task_date_2i"
+    select "27", from: "task_date_3i"
     click_on "Create Task"
 
     click_on "+ Add Task List"
@@ -108,7 +111,7 @@ feature 'Task lists' do
 
     expect(page).to_not have_content("Home")
     expect(page).to have_content("code")
-
+    expect(page).to have_content "2015-08-27"
   end
 
 end
