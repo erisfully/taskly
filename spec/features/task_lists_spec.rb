@@ -143,4 +143,38 @@ feature 'Task lists' do
     expect(page).to have_content "code"
   end
 
+  scenario "tasks show up in chronological order" do
+    create_user email: "user@example.com"
+
+    visit signin_path
+    click_on "Login"
+    fill_in "Email", with: "user@example.com"
+    fill_in "Password", with: "password"
+    click_on "Login"
+
+    click_on "+ Add Task List"
+
+    fill_in "Name", with: "gSchool"
+    click_on "Save Task List"
+
+    click_on "+ Add Task"
+
+    fill_in "Task", with: "code"
+    select "2015", from: "task_date_1i"
+    select "August", from: "task_date_2i"
+    select "27", from: "task_date_3i"
+
+    click_on "Create Task"
+
+    click_on "+ Add Task"
+
+    fill_in "Task", with: "read"
+    select "2016", from: "task_date_1i"
+    select "August", from: "task_date_2i"
+    select "2", from: "task_date_3i"
+
+    click_on "Create Task"
+
+
+  end
 end

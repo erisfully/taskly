@@ -2,7 +2,7 @@ class TaskListsController < ApplicationController
 
   def index
     @task_lists = TaskList.order(:name)
-    @tasks = Task.where(completed: false)
+    @tasks = Task.where(completed: false).order(:date)
   end
 
   def new
@@ -37,12 +37,19 @@ class TaskListsController < ApplicationController
 
   def show
     @task_list = TaskList.find(params[:id])
-    @tasks = Task.where(task_list_id: "#{params[:id]}").where(completed: false)
+    @tasks = Task.where(task_list_id: "#{params[:id]}").where(completed: false).order(:date)
   end
 
   def completed
     @task_list = TaskList.find(params[:id])
-    @tasks = Task.where(completed: true).where(task_list_id: "#{params[:id]}")
+    @tasks = Task.where(completed: true).where(task_list_id: "#{params[:id]}").order(:date)
+  end
+
+  def destroy
+    @task_list = TaskList.find(params[:id])
+    @task_list.destroy
+    flash[:notice] = "Task List was deleted successfully!"
+    redirect_to :back
   end
 
   private
