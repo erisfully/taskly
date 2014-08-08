@@ -42,7 +42,7 @@ class TaskListsController < ApplicationController
 
   def completed
     @task_list = TaskList.find(params[:id])
-    @tasks = Task.where(completed: true)
+    @tasks = Task.where(completed: true).where(task_list_id: "#{params[:id]}")
   end
 
   private
