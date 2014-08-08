@@ -138,6 +138,9 @@ feature 'Task lists' do
 
     click_on "Complete"
     expect(page).to_not have_content "code"
+
+    click_on "Completed"
+    expect(page).to have_content "code"
   end
 
 end

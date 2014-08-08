@@ -9,6 +9,7 @@
     <h1><%= link_to "#{task_list.name}", task_list_path(task_list["id"]) %></h1>
     <a href="/task_lists/<%= task_list[:id]%>/edit">Edit</a>
     <a href="/task_lists/<%= task_list[:id]%>/tasks/new">+ Add Task</a>
+    <a href="/task_list/<%= task_list[:id]%>/completed">Completed</a>
   </section>
   <ul>
   <%@tasks.each do |task|%>

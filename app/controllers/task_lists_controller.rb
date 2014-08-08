@@ -40,6 +40,11 @@ class TaskListsController < ApplicationController
     @tasks = Task.where(task_list_id: "#{params[:id]}")
   end
 
+  def completed
+    @task_list = TaskList.find(params[:id])
+    @tasks = Task.where(completed: true)
+  end
+
   private
     def task_list_params
       params.require(:task_list).permit(:name)
