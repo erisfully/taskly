@@ -23,4 +23,7 @@ Rails.application.routes.draw do
 
   resources :tasks
 
+  patch "/task_lists/task/:id/complete" => "tasks#complete"
+  delete "/task_lists/task/:id/delete" => "tasks#delete"
+
 end
