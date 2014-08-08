@@ -77,6 +77,8 @@ feature 'Task lists' do
 
     expect(page).to have_content "Task was created successfully!"
     expect(page).to have_content "code"
+    expect(page).to have_content "2015-08-27"
+
 
     click_on "+ Add Task"
 
@@ -106,8 +108,6 @@ feature 'Task lists' do
 
     expect(page).to_not have_content("Home")
     expect(page).to have_content("code")
-
-
 
   end
 
