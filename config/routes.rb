@@ -24,7 +24,6 @@ Rails.application.routes.draw do
   resources :tasks
 
   patch "/task/:id/complete" => "tasks#complete"
-  delete "/task_lists/task/:id/delete" => "tasks#delete"
 
   get "/task_list/:id/completed" => "task_lists#completed"
 
