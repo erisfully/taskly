@@ -6,7 +6,6 @@
 <%@tasks.to_a.each do |task|%>
 <li><%= task["task"] %> - <%= task["date"] %></li>
     <%= link_to 'Delete', "task/#{task[:id]}/delete", :method => :delete %>
-    <%= link_to 'Complete', "task/#{task[:id]}/complete", :method => :patch %>
 <% end %>
 </ul>
 

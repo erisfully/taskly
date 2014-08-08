@@ -15,6 +15,7 @@
     <%if task["task_list_id"] == task_list["id"] %>
     <li><%= task["task"] %> - <%= task["date"] %>
       <%= link_to 'Delete', task_path(task["id"]), :method => :delete %>
+      <%= link_to 'Complete', "task/#{task[:id]}/complete", :method => :patch %>
     </li>
   <%end%>
     <%end%>

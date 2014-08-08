@@ -114,4 +114,30 @@ feature 'Task lists' do
     expect(page).to have_content "2015-08-27"
   end
 
+  scenario "User can complete tasks" do
+    create_user email: "user@example.com"
+
+    visit signin_path
+    click_on "Login"
+    fill_in "Email", with: "user@example.com"
+    fill_in "Password", with: "password"
+    click_on "Login"
+
+    click_on "+ Add Task List"
+
+    fill_in "Name", with: "gSchool"
+    click_on "Save Task List"
+
+    click_on "+ Add Task"
+
+    fill_in "Task", with: "code"
+
+    click_on "Create Task"
+
+    expect(page).to have_content "code"
+
+    click_on "Complete"
+    expect(page).to_not have_content "code"
+  end
+
 end
