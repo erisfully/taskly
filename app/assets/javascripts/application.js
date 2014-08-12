@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   var button = $('button')
     $(button).click(function() {
-      $('.tasks').toggleClass('show')
+      $(this).parent('.task-list').find('.tasks').toggleClass('show')
   });
 
 

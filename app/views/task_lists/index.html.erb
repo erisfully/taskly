@@ -4,15 +4,14 @@
 <%= flash[:notice] %>
 
 <% @task_lists.each do |task_list| %>
-    <% count = 0 %>
   <section class="task-list">
     <h1><%= link_to "#{task_list.name}", task_list_path(task_list["id"]) %></h1>
-    <button id="<%= count += 1 %>">show tasks</button>
+    <button>show tasks</button>
       <a href="/task_lists/<%= task_list[:id]%>/edit">Edit</a>
       <a href="/task_lists/<%= task_list[:id]%>/tasks/new">+ Add Task</a>
       <a href="/task_list/<%= task_list[:id]%>/completed">Completed</a>
       <%= link_to 'Delete', task_list_path(task_list["id"]), :method => :delete %>
-  </section>
+
   <ul>
    <div class = 'tasks'>
      <%if task_list.tasks.blank? %>
@@ -28,6 +27,7 @@
     <% end %>
    </div>
   </ul>
+  </section>
 <% end %>
 
 
