@@ -92,7 +92,7 @@ feature 'Task lists' do
     within ".tasks" do
     click_on "Delete"
     end
-    
+
     expect(page).to_not have_content("code")
     expect(page).to have_content("Task was deleted successfully!")
 
@@ -180,6 +180,25 @@ feature 'Task lists' do
     expect(page).to have_content "code - 2015-08-27 Delete Complete read - 2016-08-02"
   end
 
+  scenario "user can delete task list" do
+    create_user email: "user@example.com"
 
-  #to delete task list: page.first(:link, "Delete").click
+    visit signin_path
+    click_on "Login"
+    fill_in "Email", with: "user@example.com"
+    fill_in "Password", with: "password"
+    click_on "Login"
+
+    click_on "+ Add Task List"
+
+    fill_in "Name", with: "gSchool"
+    click_on "Save Task List"
+
+    expect(page).to have_content "gSchool"
+
+    page.first(:link, "Delete").click
+
+    expect(page).to_not have_content "gSchool"
+  end
+
 end
