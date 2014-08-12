@@ -7,7 +7,7 @@ $(document).ready(function() {
 
   var button = $('button')
     $(button).click(function() {
-      $('.tasks').addClass('show')
+      $('.tasks').toggleClass('show')
   });
 
 
