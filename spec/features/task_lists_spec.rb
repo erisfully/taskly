@@ -89,8 +89,10 @@ feature 'Task lists' do
 
     visit root_path
 
+    within ".tasks" do
     click_on "Delete"
-
+    end
+    
     expect(page).to_not have_content("code")
     expect(page).to have_content("Task was deleted successfully!")
 
@@ -175,6 +177,9 @@ feature 'Task lists' do
 
     click_on "Create Task"
 
-
+    expect(page).to have_content "code - 2015-08-27 Delete Complete read - 2016-08-02"
   end
+
+
+  #to delete task list: page.first(:link, "Delete").click
 end
