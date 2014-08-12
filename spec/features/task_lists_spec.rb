@@ -199,6 +199,14 @@ feature 'Task lists' do
     page.first(:link, "Delete").click
 
     expect(page).to_not have_content "gSchool"
+    expect(page).to have_content "Task List was deleted successfully!"
+
+    click_on "+ Add Task List"
+
+    fill_in "Name", with: "gSchool"
+    click_on "Save Task List"
+
+    expect(page).to have_content "Nothing here to see!"
   end
 
 end
