@@ -4,27 +4,29 @@
 <%= flash[:notice] %>
 
 <% @task_lists.each do |task_list| %>
-
+    <% count = 0 %>
   <section class="task-list">
     <h1><%= link_to "#{task_list.name}", task_list_path(task_list["id"]) %></h1>
+    <button id="<%= count += 1 %>">show tasks</button>
       <a href="/task_lists/<%= task_list[:id]%>/edit">Edit</a>
       <a href="/task_lists/<%= task_list[:id]%>/tasks/new">+ Add Task</a>
       <a href="/task_list/<%= task_list[:id]%>/completed">Completed</a>
       <%= link_to 'Delete', task_list_path(task_list["id"]), :method => :delete %>
   </section>
   <ul>
-   <section class = 'tasks'>
-     <%task_list.tasks.blank? %>
+   <div class = 'tasks'>
+     <%if task_list.tasks.blank? %>
      <em> Nothing here to see!</em>
-    <%@tasks.each do |task|%>
+    <%else @tasks.each do |task|%>
       <%if task["task_list_id"] == task_list["id"] %>
           <li><%= task["task"] %> - <%= task["date"] %>
             <%= link_to 'Delete', task_path(task["id"]), :method => :delete %>
             <%= link_to 'Complete', "task/#{task[:id]}/complete", :method => :patch %>
           </li>
-        </section>
-      <%end%>
-    <%end%>
+      <% end %>
+    <% end %>
+    <% end %>
+   </div>
   </ul>
 <% end %>
 
