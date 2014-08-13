@@ -5,16 +5,20 @@
 $(document).ready(function() {
 
 
-  var button = $('button');
-  var tasks = $('.tasks');
-    $(button).click(function() {
-      (tasks).removeClass('show');
-      $(this).parent('.task-list').find('.tasks').toggleClass('show');
+var button = $('button');
+  button.on('click', function(){
+    var button = $(this);
+    var ul = button.parents('.task-list').find('ul');
+    ul.toggle();
 
-
+    $('button').click(function () {
+      $(this).html('Close')
     });
-
-
+  });
 
 
 });
+
+
+
+

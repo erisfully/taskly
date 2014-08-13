@@ -6,21 +6,21 @@
 <% @task_lists.each do |task_list| %>
   <section class="task-list">
     <h1><%= link_to "#{task_list.name}", task_list_path(task_list["id"]) %></h1>
-    <button>show tasks</button>
+    <button>Open</button>
       <a href="/task_lists/<%= task_list[:id]%>/edit">Edit</a>
       <a href="/task_lists/<%= task_list[:id]%>/tasks/new">+ Add Task</a>
       <a href="/task_list/<%= task_list[:id]%>/completed">Completed</a>
       <%= link_to 'Delete', task_list_path(task_list["id"]), :method => :delete %>
 
-  <ul>
+  <ul style="display: none">
    <div class = 'tasks'>
      <%if task_list.tasks.blank? %>
      <em> Nothing here to see!</em>
     <%else @tasks.each do |task|%>
       <%if task["task_list_id"] == task_list["id"] %>
           <li><%= task["task"] %> - <%= task["date"] %>
-            <%= link_to 'Delete', task_path(task["id"]), :method => :delete %>
-            <%= link_to 'Complete', "task/#{task[:id]}/complete", :method => :patch %>
+              <%= link_to 'Delete', task_path(task["id"]), :method => :delete %>
+               <%= link_to 'Complete', "task/#{task[:id]}/complete", :method => :patch %>
           </li>
       <% end %>
     <% end %>
