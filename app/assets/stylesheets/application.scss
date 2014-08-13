@@ -98,5 +98,16 @@ main {
 
 }
 
+.tasks {
+  transition: all 1s ease
 
+}
+
+.toggled {
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 0;
+    border-width: 0;
+}
 

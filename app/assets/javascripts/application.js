@@ -6,15 +6,22 @@ $(document).ready(function() {
 
 
 var button = $('button');
+
   button.on('click', function(){
     var button = $(this);
     var ul = button.parents('.task-list').find('ul');
     ul.toggle();
 
-    $('button').click(function () {
-      $(this).html('Close')
-    });
+    if( button.hasClass('open') ){
+      button.text('Show');
+      button.removeClass('open');
+    }
+    else {
+      button.text('Hide');
+      button.addClass('open');
+    }
   });
+
 
 
 });
