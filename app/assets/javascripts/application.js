@@ -5,10 +5,15 @@
 $(document).ready(function() {
 
 
-  var button = $('button')
+  var button = $('button');
+  var tasks = $('.tasks');
     $(button).click(function() {
-      $(this).parent('.task-list').find('.tasks').toggleClass('show')
-  });
+      (tasks).removeClass('show');
+      $(this).parent('.task-list').find('.tasks').toggleClass('show');
+
+
+    });
+
 
 
 
