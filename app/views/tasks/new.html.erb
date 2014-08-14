@@ -9,8 +9,7 @@
 <%= f.text_field :task %>
 <%= f.hidden_field :task_list_id, value: @task_list_id %>
 
-  <% f.label "Due Date" %>
-  <%= f.date_select :date%>
+  Date: <%= f.text_field :date %>
 <%= f.submit "Create Task" %>
 <% end %>
 

@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require jquery-ui
 
 $(document).ready(function() {
 
@@ -12,7 +13,7 @@ var button = $('button');
     var ul = button.parents('.task-list').find('ul');
     ul.toggle();
 
-    if( button.hasClass('open') ){
+    if(button.hasClass('open') ){
       button.text('Show');
       button.removeClass('open');
     }
@@ -29,6 +30,7 @@ var button = $('button');
    notice.remove();
   });
 
+  $( "#task_date" ).datepicker({dateFormat: "yy-mm-dd"});
 });
 
 
