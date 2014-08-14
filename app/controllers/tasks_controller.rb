@@ -34,6 +34,7 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.completed = true
     @task.save
+    flash[:notice] = "Task complete!"
     redirect_to :back
   end
 
