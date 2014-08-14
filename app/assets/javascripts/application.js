@@ -23,12 +23,10 @@ var button = $('button');
   });
 
   var notice = $('.notice');
-
-    notice.fadeOut(5000);
-    button = $("<button>X</button>");
-    notice.append(button);
-    button.on('click', function(){
-    notice.hide()
+  var noticeButton = $('.notice-button');
+   notice.fadeOut(5000);
+   noticeButton.on('click', function(){
+   notice.remove();
   });
 
 });

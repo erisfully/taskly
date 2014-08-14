@@ -1,7 +1,10 @@
 <h1>My Lists</h1>
 <a href="task_lists/new">+ Add Task List</a>
 <div class="notice">
+  <% if flash[:notice] %>
 <%= flash[:notice] %>
+ <button class="notice-button">X</button>
+   <% end %>
 </div>
 
 <% @task_lists.each do |task_list| %>
