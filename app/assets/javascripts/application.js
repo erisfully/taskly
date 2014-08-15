@@ -9,11 +9,14 @@ $(document).ready(function() {
 var button = $('button');
 
   button.on('click', function(){
-//    $('.task-list ul').hide();
     var button = $(this);
     var ul = button.parents('.task-list').find('ul');
     ul.slideToggle();
     $('.task-list').find('ul').not(ul).slideUp();
+    var hideButton = $('button').not(button);
+    hideButton.text('Show');
+
+
 
     if(button.hasClass('open') ){
       button.text('Show');
