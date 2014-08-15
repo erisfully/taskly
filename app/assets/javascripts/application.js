@@ -15,7 +15,7 @@ var button = $('button');
     $('.task-list').find('ul').not(ul).slideUp();
     var hideButton = $('button').not(button);
     hideButton.text('Show');
-    hideButton.removeClass('open')
+    hideButton.removeClass('open');
 
 
     if(button.hasClass('open') ){
@@ -35,7 +35,7 @@ var button = $('button');
    notice.remove();
   });
 
-  $( "#task_date" ).datepicker({dateFormat: "yy-mm-dd"});
+  $("#task_date").datepicker({dateFormat: "yy-mm-dd"});
 
 
 //  keep stuff open by adding animations on click for delete and complete

@@ -6,4 +6,5 @@ class Task < ActiveRecord::Base
   validates :task_list_id, :presence => true
   validates :date, :presence => true
 
+
 end

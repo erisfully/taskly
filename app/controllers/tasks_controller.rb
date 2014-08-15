@@ -4,11 +4,15 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @task_list_id = params[:id]
-    @users = User.all
+    @user = User.select("name")
+    #figure out how to select the names properly
   end
 
   def create
-    p params
+
+      if params[:task][:date] == ""
+        params[:task][:date] = "2014-08-15"
+      end
     @task = Task.new(
       task: params[:task][:task],
       task_list_id: params[:task][:task_list_id],
