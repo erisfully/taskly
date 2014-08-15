@@ -36,6 +36,9 @@ var button = $('button');
   });
 
   $( "#task_date" ).datepicker({dateFormat: "yy-mm-dd"});
+
+
+//  keep shit open by adding animations on click for delete and complete
 });
 
 

@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @task_list_id = params[:id]
+    @users = User.all
   end
 
   def create

@@ -8,10 +8,11 @@
 <%= f.label :task %>
 <%= f.text_field :task %>
 <%= f.hidden_field :task_list_id, value: @task_list_id %>
-
   Date: <%= f.text_field :date %>
 <%= f.submit "Create Task" %>
 <% end %>
 
 <%= link_to 'Back', root_path %>
+
+
 
