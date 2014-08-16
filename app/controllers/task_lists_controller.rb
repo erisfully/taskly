@@ -1,8 +1,8 @@
 class TaskListsController < ApplicationController
-
+  skip_before_action :ensure_current_user
 
   def index
-    skip_before_action :ensure_current_user
+
     @task_lists = TaskList.order(:name)
       @tasks = Task.where(completed: false).order(:date)
     @users = User.all
