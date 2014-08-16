@@ -3,6 +3,7 @@ class TaskListsController < ApplicationController
   def index
     @task_lists = TaskList.order(:name)
       @tasks = Task.where(completed: false).order(:date)
+    @users = User.all
   end
 
   def new

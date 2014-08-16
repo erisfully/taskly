@@ -22,6 +22,11 @@
     <%else @tasks.each do |task|%>
       <%if task["task_list_id"] == task_list["id"] %>
           <li class="tasks"><%= task["task"] %> (<%= distance_of_time_in_words(Date.today, task["date"]) %>)
+            <%@users.each do |user| %>
+              <% if user["id"] == task["user_id"]%>
+            <%= user.name %>
+              <% end %>
+              <% end %>
               <%= link_to 'Delete', task_path(task["id"]), :method => :delete %>
                <%= link_to 'Complete', "task/#{task[:id]}/complete", :method => :patch %>
           </li>
