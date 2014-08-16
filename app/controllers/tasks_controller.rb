@@ -4,8 +4,7 @@ class TasksController < ApplicationController
   def new
     @task = Task.new
     @task_list_id = params[:id]
-    @user = User.select("name")
-    #figure out how to select the names properly
+    @user = User.all
   end
 
   def create
@@ -16,7 +15,8 @@ class TasksController < ApplicationController
     @task = Task.new(
       task: params[:task][:task],
       task_list_id: params[:task][:task_list_id],
-      date: Date.parse(params[:task][:date])
+      date: Date.parse(params[:task][:date]),
+      user_id: params[:task][:user_id]
     )
     if @task.save
       flash[:notice] = "Task was created successfully!"
