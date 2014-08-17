@@ -10,7 +10,7 @@ class TasksController < ApplicationController
   def create
 
       if params[:task][:date] == ""
-        params[:task][:date] = "2014-08-15"
+        params[:task][:date] = "2014-8-15"
       end
     @task = Task.new(
       task: params[:task][:task],

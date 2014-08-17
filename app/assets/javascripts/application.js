@@ -35,7 +35,18 @@ var button = $('button');
    notice.remove();
   });
 
-  $("#task_date").datepicker({dateFormat: "yy-mm-dd"});
+  $("#task_date").datepicker({dateFormat: "yy-m-d"});
+
+  var todaysDate = $('li').data('today');
+
+  $('li').each(function(){
+    var dueDate = $(this).data('time');
+    if (dueDate == todaysDate) {
+      $(this).css("background","orange")
+  }
+  });
+
+
 
 
 //  keep stuff open by adding animations on click for delete and complete
