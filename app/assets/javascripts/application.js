@@ -38,12 +38,14 @@ var button = $('button');
   $("#task_date").datepicker({dateFormat: "yy-m-d"});
 
   var todaysDate = $('li').data('today');
-
   $('li').each(function(){
     var dueDate = $(this).data('time');
     if (dueDate == todaysDate) {
       $(this).css("background","orange")
-  }
+    }
+    if (dueDate < todaysDate) {
+      $(this).css("background","red")
+    }
   });
 
 
