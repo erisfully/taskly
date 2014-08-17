@@ -41,10 +41,10 @@ var button = $('button');
   $('li').each(function(){
     var dueDate = $(this).data('time');
     if (dueDate == todaysDate) {
-      $(this).css("background","orange")
+      $(this).css("background-color","#FFD700")
     }
     if (dueDate < todaysDate) {
-      $(this).css("background","red")
+      $(this).css("background","#FF6347")
     }
   });
 
