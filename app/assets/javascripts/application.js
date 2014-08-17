@@ -37,20 +37,19 @@ var button = $('button');
 
   $("#task_date").datepicker({dateFormat: "yy-m-d"});
 
-  var todaysDate = $('li').data('today');
-  $('li').each(function(){
+  var todaysDate = $('.tasks').data('today');
+  $('.tasks').each(function(){
     var dueDate = $(this).data('time');
     if (dueDate == todaysDate) {
-      $(this).css("background-color","#FFD700")
+      $(this).addClass('due-today');
     }
     if (dueDate < todaysDate) {
-      $(this).css("background","#FF6347")
+      $(this).addClass('past-due');
     }
   });
 
 
-    $('.task-list h1').jMagnify();
-
+//    $('.task-list h1').jMagnify();
 
 
 
