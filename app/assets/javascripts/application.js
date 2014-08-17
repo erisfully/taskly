@@ -49,6 +49,9 @@ var button = $('button');
   });
 
 
+    $('.task-list h1').jMagnify();
+
+
 
 
 //  keep stuff open by adding animations on click for delete and complete
